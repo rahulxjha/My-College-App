@@ -1,0 +1,149 @@
+
+body{   
+    background-image: url(/image/background.avif);
+    background-attachment: fixed;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Header */
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(0, 0, 0);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+#navbar#sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+/* Header: Logo and Image */
+#logo img{
+    margin: 10px 0px;
+    height: 50px;
+}
+
+
+/* Navigation Bar: List Styling */
+#navbar ul{
+    font-family:cursive;
+}
+
+#navbar ul li{ 
+    list-style: none;
+    font-size: 20px;
+}
+
+#navbar ul li a{
+    color: white;
+    padding: 3px 5px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+#datetime {
+    color: white;
+    font-family: cursive;
+    margin-right: 40px;
+}
+
+#navbar ul li a:hover{
+    color: black;
+    background-color: white;
+}
+
+
+/* Menu side bar */
+#menu {
+    color: white;
+    width: 150px;
+    padding: 20px;
+    position: absolute;
+    top: 55px;
+}
+
+#menu ul li{
+    list-style: none;
+    font-family: cursive;
+    font-size: 16px;
+    margin-bottom: 200px;
+    margin-left: 12px;
+}
+
+#menu ul li a {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(0, 0, 0, 0.5);
+    padding: 0px 5px;
+    border-radius: 5px;
+}
+
+#menu ul li a:hover{
+    color: black;
+    background-color: white;
+}
+
+#landing-page {
+    margin-left: 190px;
+    padding: 20px;
+    background-color: rgb(0, 0, 0, 0.3);
+    height: 453px;
+}
+
+#landing-page h1 {
+    margin-top: 170px;
+    color: orange;
+    padding: 0px 24px;
+    font-family: cursive;
+    font-size: 40px;
+    margin-bottom: -18px;
+}
+
+#landing-page p {
+    color: white;
+    font-family: cursive;
+    font-size: 18px;
+    padding: 0px 25px
+
+}
+
+/* Footer */
+#footer{
+    background-color: rgb(0, 0, 0, 0.8);
+}
+
+#center{
+    display: flex;
+    justify-content:space-between;
+    text-align: center;
+}
+
+#center h1{
+    margin-top: 5px;
+    color: white;
+    font-family: cursive;
+    font-weight: lighter;
+    font-size: 13px;
+    padding: 0px 25px;
+}
+
+
+#copyright{
+    color: orange;
+    font-family: cursive;
+    font-weight: lighter;
+    font-size: 17px;
+    text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+        
+  }

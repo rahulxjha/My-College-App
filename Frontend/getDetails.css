@@ -1,0 +1,195 @@
+/* Get Details Form */
+#getDetailsForm {
+    background-image: url(/image/getdetails.jpg);
+    height: 100vh;
+}
+
+#form-gd-css {
+    height: 400px;
+}
+
+#userID {
+    height: 40px;
+}
+
+form {
+    background-color: white;
+    border-radius: 5px;
+    padding: 18px;
+    height: 220px;
+    font-family: cursive;
+    display: flex;
+    align-items: center;
+    width: 500px;
+    flex-direction: column;
+    margin: 100px auto;
+}
+
+input {
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 7px;
+    width: 50%;
+}
+
+input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+#btn-sub {
+    background-color: #007bff;
+    display: inline-block;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: cursive;
+    font-size: 18px;
+    width: 80px;
+    padding: 5px 2px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#btn-sub:hover {
+    background-color: #0062cc;
+}
+
+
+/* Reset Button */
+#btn-reset {
+    background-color: rgb(240, 24, 24);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: cursive;
+    font-size: 18px;
+    width: 80px;
+    padding: 5px 2px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+#btn-reset:hover {
+    background-color: rgb(211, 23, 23);
+}
+
+h2 {
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+
+/* Get Details Button */
+#getDetails {
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: cursive;
+    font-size: 18px;
+    width: 120px;
+    padding: 5px 2px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#getDetails:hover {
+    background-color: rgb(255, 123, 0);
+}
+
+#user-data{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+        
+}
+
+/* Dynamic table */
+#table-container{
+    display: flex;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 10px;
+    /* margin: auto auto; */
+}
+
+
+table {
+    border-collapse: collapse;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 14px;
+    overflow-y: auto;
+
+}
+
+/* Action Button 1 */
+#editButton{
+    background-color: white;
+    display: inline-block;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    font-family: cursive;
+    font-size: 14px;
+    width: 50px;
+    padding: 3px 2px;
+    cursor: pointer;
+    
+}
+
+#editButton:hover{
+    background-color: #007bff;
+    color: white;
+}
+
+
+/* Action Button 2 */
+#deleteButton{
+    background-color: white;
+    border: 1px solid red;
+    color: red;
+    border-radius: 5px;
+    font-family: cursive;
+    font-size: 14px;
+    width: 70px;
+    padding: 3px 2px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+#deleteButton:hover {
+    background-color: red;
+    color: white;
+}
+
+/* Table rows */
+th,
+td {
+    background-color: white;
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+    font-family: cursive;
+    font-weight: lighter;
+}
+
+th {
+    background-color: rgb(238, 228, 228);
+    color: black;
+}
+
+th:nth-child(even) {
+    background-color: #585858;
+    color: white;
+}
+
+#gd-footer{
+    background-color: rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
