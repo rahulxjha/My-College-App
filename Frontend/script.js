@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Use event delegation to handle button clicks
+    // Handle button clicks
     tableContainer.addEventListener('click', function (event) {
         const target = event.target;
         if (target.tagName === 'BUTTON') {
@@ -256,14 +256,13 @@ document.addEventListener('DOMContentLoaded', function () {
         tableContainer.appendChild(table);
     }
 
-    // Add event listener to Get Details button
     getDetailsButton.addEventListener('click', function () {
         fetchData();
     });
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Parse query parameters
+    // Parsing query parameters
     const queryParams = new URLSearchParams(window.location.search);
     
     // Populate form fields with data from query parameters
