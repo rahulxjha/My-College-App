@@ -41,37 +41,76 @@ function validateForm() {
 }
 
 
-// Posting the data to the database //
-document.getElementById('btn-sub').addEventListener('click', function () {
-    if (validateForm()) {
-        // Gather form data
-        const formData = new FormData(document.forms['myForm']);
-        const postData = {};
-        formData.forEach((value, key) => {
-            postData[key] = value;
-        });
+// Posting and Updating the data to the database //
+  // Parse query parameters
+    const queryParams = new URLSearchParams(window.location.search);
 
-        // Make the POST request
-        fetch('http://localhost:8080/students', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(postData)
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                alert("Thanks! " + data.name + ", Your id is " + data.id + " Keep it safe for the future reference.");
-                document.forms['myForm'].reset();
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+    // Populate form fields with data from query parameters
+    document.getElementById('name').value = queryParams.get('name');
+    document.getElementById('email').value = queryParams.get('email');
+    document.getElementById('phone').value = queryParams.get('phoneNum');
+    document.getElementById('address').value = queryParams.get('address');
+
+    const studentId = queryParams.get('id');
+    if (studentId) {
+        document.getElementById('student-id').value = studentId;
     }
-
 });
 
+
+// Posting & Updating
+document.getElementById('btn-sub').addEventListener('click', async function () {
+    if (validateForm()) {
+        const studentId = document.getElementById('student-id').value; // Get the student ID
+        const formData = new FormData(document.forms['myForm']);
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        if (studentId) {
+            await putData(studentId, data);
+        } else {
+            await postData(data);
+        }
+    }
+
+    async function postData(data) {
+        // Make the POST request
+        try {
+            const response = await fetch('http://localhost:8080/students', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            console.log(result);
+            alert("Thanks! " + result.name + ", Your id is " + result.id + " Keep it safe for future reference.");
+            document.forms['myForm'].reset();
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    async function putData(id, data) {
+        try {
+            const response = await fetch(`http://localhost:8080/students/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+            const result = await response.json();
+            alert(result.name + ' Your data has been updated.');
+            document.forms['myForm'].reset();
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+});
 
 
 // Get the data by their id //
@@ -260,18 +299,3 @@ document.addEventListener('DOMContentLoaded', function () {
         fetchData();
     });
 });
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Parsing query parameters
-    const queryParams = new URLSearchParams(window.location.search);
-    
-    // Populate form fields with data from query parameters
-    document.getElementById('name').value = queryParams.get('name');
-    document.getElementById('email').value = queryParams.get('email');
-    document.getElementById('phone').value = queryParams.get('phoneNum');
-    document.getElementById('address').value = queryParams.get('address');
-    const id = parseInt(queryParams.get('id'));
-
-});
-
-
