@@ -47,6 +47,17 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
+    public Student updateStudent(Student student) {
+        try{
+            return studentDao.save(student);
+        } catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+
+    @Override
     public boolean deleteData(long studentId) {
         try {
             studentDao.deleteById(studentId);
