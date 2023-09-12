@@ -48,6 +48,26 @@ public class AppController {
         return ResponseEntity.ok(addedStudent);
     }
 
+    @PutMapping("/students/{studentId}")
+    public ResponseEntity<Student> updateStudent(@PathVariable Long studentId, @RequestBody Student student) {
+        if (student == null || studentId == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        Student existingStudent = studentService.getStudentById(studentId);
+        if (existingStudent == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        existingStudent.setName(student.getName());
+        existingStudent.setEmail(student.getEmail());
+        existingStudent.setPhoneNum(student.getPhoneNum());
+        existingStudent.setAddress(student.getAddress());
+
+        Student updatedStudent = studentService.updateStudent(existingStudent);
+        return ResponseEntity.ok(updatedStudent);
+    }
+
     @DeleteMapping("/students/{studentId}")
     public ResponseEntity<Boolean> deleteStudent(@PathVariable Long studentId) {
         boolean deleted = studentService.deleteData(studentId);
