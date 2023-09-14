@@ -68,6 +68,8 @@ public class AppController {
         return ResponseEntity.ok(updatedStudent);
     }
 
+
+
     @DeleteMapping("/students/{studentId}")
     public ResponseEntity<Boolean> deleteStudent(@PathVariable Long studentId) {
         boolean deleted = studentService.deleteData(studentId);
