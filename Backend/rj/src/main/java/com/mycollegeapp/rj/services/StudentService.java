@@ -10,5 +10,6 @@ public interface StudentService {
     Student addData(Student student);
     Student updateStudent(Student student);
     boolean deleteData(long studentId);
-
+    List<Student> getByName(String name);
+    String deleteByName(String name);
 }
