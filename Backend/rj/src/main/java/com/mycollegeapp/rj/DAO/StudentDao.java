@@ -1,8 +1,12 @@
 package com.mycollegeapp.rj.DAO;
 
 import com.mycollegeapp.rj.entity.Student;
-import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface StudentDao extends JpaRepository<Student, Long> {
-
+public interface StudentDao {
+    List<Student> findAll();
+    Student findById(long id);
+    Student save(Student student);
+    void deleteById(long id);
+    List<Student> getByName(String name);
+    String deleteByName(String name);
 }
