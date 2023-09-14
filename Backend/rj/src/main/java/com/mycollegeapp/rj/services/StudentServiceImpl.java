@@ -28,7 +28,7 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public Student getStudentById(long studentId) {
         try{
-            return studentDao.findById(studentId).get();
+            return studentDao.findById(studentId);
         } catch (Exception e){
             e.printStackTrace();
             return null;
@@ -56,7 +56,6 @@ public class StudentServiceImpl implements StudentService{
         }
     }
 
-
     @Override
     public boolean deleteData(long studentId) {
         try {
@@ -66,4 +65,23 @@ public class StudentServiceImpl implements StudentService{
             return false;
         }
     }
+
+    @Override
+    public List<Student> getByName(String name) {
+        try {
+            return studentDao.getByName(name);
+        } catch (EmptyResultDataAccessException ex) {
+            return new ArrayList<>();
+        }
+    }
+
+    @Override
+    public String deleteByName(String name) {
+        try{
+            return studentDao.deleteByName(name);
+        } catch (Exception e){
+            return e.getMessage();
+        }
+    }
+
 }
