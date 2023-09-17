@@ -31,7 +31,7 @@ function validateForm() {
         return false;
     }
 
-    let vaddress = document.getElementById('address').value; // Corrected typo "myForms" to "myForm"
+    let vaddress = document.getElementById('address').value;
     if (vaddress === "" || vaddress.length > 150) {
         alert("Enter address and it should be less than 150 letters.");
         return false;
